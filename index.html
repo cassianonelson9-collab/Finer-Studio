@@ -1,208 +1,401 @@
 <!DOCTYPE html>
 <html lang="pt">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="FINER Studio - Jogos, aplicações e tecnologia.">
-<title>FINER Studio</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<style>
-* {
-    box-sizing: border-box;
-}
+  <meta name="description" content="FINER Studio: jogos, aplicações, tecnologia e produtos.">
 
-body {
-    margin: 0;
-    background: #080808;
-    color: white;
-    font-family: Arial, sans-serif;
-}
+  <title>FINER Studio | Jogos e Aplicações</title>
 
-header {
-    background: #111;
-    padding: 25px 15px;
-    text-align: center;
-    border-bottom: 2px solid #d4af37;
-}
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-.logo {
-    color: #d4af37;
-    font-size: 32px;
-    font-weight: bold;
-}
+    :root {
+      --preto: #080808;
+      --cinza: #151515;
+      --dourado: #d4af37;
+      --branco: #ffffff;
+      --texto: #bbbbbb;
+    }
 
-header p {
-    color: #ccc;
-}
+    html {
+      scroll-behavior: smooth;
+    }
 
-nav {
-    padding: 15px;
-    text-align: center;
-    background: #191919;
-}
+    body {
+      background: var(--preto);
+      color: var(--branco);
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+    }
 
-nav a {
-    color: #d4af37;
-    text-decoration: none;
-    margin: 8px;
-    display: inline-block;
-}
+    a {
+      text-decoration: none;
+    }
 
-.hero {
-    padding: 45px 20px;
-    text-align: center;
-}
+    header {
+      padding: 22px 15px;
+      text-align: center;
+      background: #101010;
+      border-bottom: 2px solid var(--dourado);
+    }
 
-h1, h2 {
-    color: #d4af37;
-}
+    .logo {
+      color: var(--dourado);
+      font-size: 30px;
+      font-weight: bold;
+      letter-spacing: 2px;
+    }
 
-.button {
-    display: inline-block;
-    background: #d4af37;
-    color: #080808;
-    padding: 12px 20px;
-    text-decoration: none;
-    border-radius: 6px;
-    font-weight: bold;
-    margin-top: 10px;
-}
+    header p {
+      color: var(--texto);
+      font-size: 14px;
+    }
 
-section {
-    padding: 25px 18px;
-    max-width: 1000px;
-    margin: auto;
-}
+    nav {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 18px;
+      padding: 14px 8px;
+      background: #171717;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
 
-.grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 18px;
-}
+    nav a {
+      color: var(--branco);
+      font-size: 14px;
+      font-weight: bold;
+    }
 
-.card {
-    background: #171717;
-    border: 1px solid #444;
-    border-radius: 10px;
-    padding: 20px;
-}
+    nav a:hover {
+      color: var(--dourado);
+    }
 
-.card h3 {
-    color: #d4af37;
-}
+    .hero {
+      padding: 65px 20px;
+      text-align: center;
+      background: linear-gradient(180deg, #19150a, #080808);
+    }
 
-.tag {
-    color: #aaa;
-    font-size: 14px;
-}
+    .hero h1 {
+      color: var(--dourado);
+      font-size: 32px;
+      line-height: 1.3;
+      margin-bottom: 18px;
+    }
 
-.ad {
-    border: 1px dashed #777;
-    padding: 22px 10px;
-    text-align: center;
-    color: #999;
-    margin: 20px auto;
-}
+    .hero p {
+      max-width: 500px;
+      margin: 0 auto;
+      color: var(--texto);
+    }
 
-footer {
-    text-align: center;
-    background: #151515;
-    padding: 25px 15px;
-    color: #aaa;
-    border-top: 1px solid #d4af37;
-}
+    .botao {
+      display: inline-block;
+      margin-top: 25px;
+      padding: 12px 25px;
+      background: var(--dourado);
+      color: #080808;
+      font-weight: bold;
+      border-radius: 6px;
+    }
 
-footer strong {
-    color: #d4af37;
-}
-</style>
+    .botao:hover {
+      background: #f0d778;
+    }
+
+    section {
+      padding: 40px 16px;
+      scroll-margin-top: 65px;
+    }
+
+    .titulo-seccao {
+      text-align: center;
+      color: var(--dourado);
+      font-size: 25px;
+      margin-bottom: 25px;
+    }
+
+    .descricao {
+      text-align: center;
+      color: var(--texto);
+      margin: -12px auto 25px;
+      max-width: 550px;
+    }
+
+    .catalogo {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    .cartao {
+      padding: 20px 12px;
+      text-align: center;
+      background: var(--cinza);
+      border: 1px solid #423719;
+      border-radius: 10px;
+      transition: transform 0.2s;
+    }
+
+    .cartao:hover {
+      transform: translateY(-4px);
+      border-color: var(--dourado);
+    }
+
+    .icone {
+      font-size: 36px;
+      margin-bottom: 8px;
+    }
+
+    .cartao h3 {
+      color: var(--dourado);
+      font-size: 17px;
+      margin-bottom: 8px;
+    }
+
+    .cartao p {
+      color: var(--texto);
+      font-size: 13px;
+    }
+
+    .etiqueta {
+      display: inline-block;
+      margin-top: 12px;
+      padding: 4px 9px;
+      border: 1px solid var(--dourado);
+      border-radius: 4px;
+      color: var(--dourado);
+      font-size: 11px;
+    }
+
+    .publicidade {
+      margin: 15px;
+      padding: 35px 18px;
+      text-align: center;
+      background: #17130a;
+      border: 1px dashed var(--dourado);
+      border-radius: 10px;
+    }
+
+    .publicidade h2 {
+      color: var(--dourado);
+      margin-bottom: 10px;
+    }
+
+    .publicidade p {
+      color: var(--texto);
+    }
+
+    .contacto {
+      text-align: center;
+      background: #111111;
+    }
+
+    .contacto p {
+      color: var(--texto);
+      margin-bottom: 10px;
+    }
+
+    footer {
+      padding: 25px 15px;
+      text-align: center;
+      border-top: 1px solid #423719;
+      color: var(--texto);
+      font-size: 13px;
+    }
+
+    footer strong {
+      color: var(--dourado);
+    }
+
+    @media (min-width: 650px) {
+      .catalogo {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .hero h1 {
+        font-size: 42px;
+      }
+
+      section {
+        padding: 55px 25px;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-<header>
+  <header>
     <div class="logo">FINER STUDIO</div>
-    <p>Inovação, jogos e aplicações num só lugar.</p>
-</header>
+    <p>Jogos, aplicações, tecnologia e inovação</p>
+  </header>
 
-<nav>
+  <nav>
     <a href="#inicio">Início</a>
     <a href="#jogos">Jogos</a>
-    <a href="#apps">Aplicações</a>
-    <a href="#contacto">Contacto</a>
-</nav>
+    <a href="#aplicacoes">Aplicações</a>
+    <a href="#produtos">Produtos</a>
+    <a href="#publicidade">Publicidade</a>
+  </nav>
 
-<div class="hero" id="inicio">
-    <h1>O FUTURO É FINER</h1>
-    <p>Descobre os nossos jogos, aplicações e projetos digitais.</p>
-    <a class="button" href="#jogos">Explorar projetos</a>
-</div>
+  <main>
 
-<section>
-    <div class="ad">
-        <p>ESPAÇO PARA PUBLICIDADE</p>
-        <small>A publicidade será ativada após a integração de um serviço aprovado.</small>
+    <section class="hero" id="inicio">
+      <h1>O teu mundo digital começa aqui</h1>
+
+      <p>
+        Descobre jogos, aplicações e produtos tecnológicos
+        numa plataforma com a identidade FINER Studio.
+      </p>
+
+      <a href="#jogos" class="botao">Explorar catálogo</a>
+    </section>
+
+    <section id="jogos">
+      <h2 class="titulo-seccao">🎮 Catálogo de Jogos</h2>
+
+      <p class="descricao">
+        Explora diferentes categorias de jogos.
+      </p>
+
+      <div class="catalogo">
+
+        <article class="cartao">
+          <div class="icone">🏎️</div>
+          <h3>Corrida</h3>
+          <p>Jogos de velocidade e competição.</p>
+          <span class="etiqueta">Jogos</span>
+        </article>
+
+        <article class="cartao">
+          <div class="icone">⚽</div>
+          <h3>Desporto</h3>
+          <p>Jogos de futebol e outras modalidades.</p>
+          <span class="etiqueta">Jogos</span>
+        </article>
+
+        <article class="cartao">
+          <div class="icone">🎯</div>
+          <h3>Aventura</h3>
+          <p>Descobre novos desafios e aventuras.</p>
+          <span class="etiqueta">Jogos</span>
+        </article>
+
+        <article class="cartao">
+          <div class="icone">🧩</div>
+          <h3>Estratégia</h3>
+          <p>Jogos para desenvolver estratégias.</p>
+          <span class="etiqueta">Jogos</span>
+        </article>
+
+      </div>
+    </section>
+
+    <section id="aplicacoes">
+      <h2 class="titulo-seccao">📱 Aplicações</h2>
+
+      <p class="descricao">
+        Categorias de aplicações para diferentes necessidades.
+      </p>
+
+      <div class="catalogo">
+
+        <article class="cartao">
+          <div class="icone">🎵</div>
+          <h3>Música</h3>
+          <p>Aplicações de música e áudio.</p>
+          <span class="etiqueta">Aplicações</span>
+        </article>
+
+        <article class="cartao">
+          <div class="icone">🎨</div>
+          <h3>Design</h3>
+          <p>Ferramentas criativas e de edição.</p>
+          <span class="etiqueta">Aplicações</span>
+        </article>
+
+        <article class="cartao">
+          <div class="icone">🛠️</div>
+          <h3>Ferramentas</h3>
+          <p>Utilitários para o dia a dia.</p>
+          <span class="etiqueta">Aplicações</span>
+        </article>
+
+        <article class="cartao">
+          <div class="icone">📚</div>
+          <h3>Educação</h3>
+          <p>Recursos para aprender e estudar.</p>
+          <span class="etiqueta">Aplicações</span>
+        </article>
+
+      </div>
+    </section>
+
+    <div class="publicidade" id="publicidade">
+      <h2>💰 Espaço para publicidade</h2>
+      <p>
+        Um espaço reservado para futuras campanhas
+        e anúncios de parceiros.
+      </p>
     </div>
-</section>
 
-<section id="jogos">
-    <h2>🎮 Os nossos jogos</h2>
+    <section id="produtos">
+      <h2 class="titulo-seccao">🛍️ Produtos</h2>
 
-    <div class="grid">
+      <p class="descricao">
+        Uma área preparada para apresentar produtos.
+      </p>
 
-        <div class="card">
-            <h3>FINER Racing</h3>
-            <p>Um projeto de jogo de corridas para os amantes da velocidade.</p>
-            <p class="tag">Categoria: Corridas</p>
-            <p><strong>Estado:</strong> Em desenvolvimento</p>
-        </div>
+      <div class="catalogo">
 
-        <div class="card">
-            <h3>FINER Fighting 3D</h3>
-            <p>Um conceito de jogo de luta em três dimensões.</p>
-            <p class="tag">Categoria: Ação</p>
-            <p><strong>Estado:</strong> Em desenvolvimento</p>
-        </div>
+        <article class="cartao">
+          <div class="icone">💻</div>
+          <h3>Computadores</h3>
+          <p>Produtos de informática e tecnologia.</p>
+          <span class="etiqueta">Produtos</span>
+        </article>
 
-    </div>
-</section>
+        <article class="cartao">
+          <div class="icone">🎧</div>
+          <h3>Acessórios</h3>
+          <p>Acessórios para dispositivos eletrónicos.</p>
+          <span class="etiqueta">Produtos</span>
+        </article>
 
-<section id="apps">
-    <h2>📱 Aplicações</h2>
+        <article class="cartao">
+          <div class="icone">📱</div>
+          <h3>Telemóveis</h3>
+          <p>Uma área para apresentar dispositivos móveis.</p>
+          <span class="etiqueta">Produtos</span>
+        </article>
 
-    <div class="grid">
+      </div>
+    </section>
 
-        <div class="card">
-            <h3>Novas aplicações</h3>
-            <p>Esta área será utilizada para apresentar aplicações desenvolvidas pela FINER Studio.</p>
-            <p class="tag">Novidades em breve</p>
-        </div>
+    <section class="contacto" id="contacto">
+      <h2 class="titulo-seccao">📩 Contacto</h2>
+      <p>Bem-vindo ao FINER Studio.</p>
+      <p>Em breve, mais novidades nesta plataforma.</p>
+    </section>
 
-    </div>
-</section>
+  </main>
 
-<section>
-    <h2>💼 Sobre a FINER Studio</h2>
-    <p>
-        A FINER Studio é um projeto dedicado à criação,
-        divulgação e comercialização de jogos e aplicações digitais.
-        O nosso objetivo é desenvolver projetos de qualidade
-        e criar oportunidades para outros criadores.
-    </p>
-</section>
-
-<section id="contacto">
-    <h2>📩 Contacto</h2>
-    <p>Queres colaborar com a FINER Studio?</p>
-    <p>Entra em contacto connosco para apresentar a tua ideia.</p>
-    <p class="tag">Adicionaremos os contactos oficiais nesta área.</p>
-</section>
-
-<footer>
-    <p><strong>FINER STUDIO</strong></p>
-    <p>© 2026 FINER Studio. Todos os direitos reservados.</p>
-    <p>Angola 🇦🇴</p>
-</footer>
+  <footer>
+    <p>© 2026 <strong>FINER Studio</strong></p>
+    <p>Todos os direitos reservados.</p>
+  </footer>
 
 </body>
 </html>
